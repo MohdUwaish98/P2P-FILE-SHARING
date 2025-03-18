@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TorrentHub - Web Client</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="client-page">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-bolt"></i> TorrentHub
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="client.html" class="active">Web Client</a></li>
+                <li><a href="#" class="upload-btn"><i class="fas fa-upload"></i> Upload</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="client-container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-buttons">
+                <button id="add-torrent-btn"><i class="fas fa-plus"></i> Add Torrent</button>
+                <button id="play-btn"><i class="fas fa-play"></i></button>
+                <button id="pause-btn"><i class="fas fa-pause"></i></button>
+                <button id="stop-btn"><i class="fas fa-stop"></i></button>
+                <button id="up-btn"><i class="fas fa-arrow-up"></i></button>
+                <button id="down-btn"><i class="fas fa-arrow-down"></i></button>
+                <button id="settings-btn"><i class="fas fa-cog"></i></button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." id="client-search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <ul>
+                    <li class="active" data-filter="all"><i class="fas fa-list"></i> All</li>
+                    <li data-filter="downloading"><i class="fas fa-download"></i> Downloading</li>
+                    <li data-filter="completed"><i class="fas fa-check"></i> Completed</li>
+                    <li data-filter="active"><i class="fas fa-clock"></i> Active</li>
+                    <li data-filter="inactive"><i class="fas fa-pause"></i> Inactive</li>
+                </ul>
+            </div>
+
+            <!-- Torrent List -->
+            <div class="torrent-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Progress</th>
+                            <th>Status</th>
+                            <th>Seeds</th>
+                            <th>Peers</th>
+                            <th>Down Speed</th>
+                            <th>Up Speed</th>
+                        </tr>
+                    </thead>
+                    <tbody id="torrent-table-body">
+                        <tr data-status="downloading">
+                            <td>1</td>
+                            <td>Sample Torrent 1</td>
+                            <td>2.5 GB</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </td>
+                            <td>Downloading</td>
+                            <td>45</td>
+                            <td>12</td>
+                            <td>3.2 MB/s</td>
+                            <td>1.5 MB/s</td>
+                        </tr>
+                        <tr data-status="completed">
+                            <td>2</td>
+                            <td>Sample Torrent 2</td>
+                            <td>1.8 GB</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td>Completed</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0 KB/s</td>
+                            <td>0 KB/s</td>
+                        </tr>
+                        <tr data-status="active">
+                            <td>3</td>
+                            <td>Sample Torrent 3</td>
+                            <td>3.2 GB</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 35%"></div>
+                                </div>
+                            </td>
+                            <td>Active</td>
+                            <td>28</td>
+                            <td>5</td>
+                            <td>2.1 MB/s</td>
+                            <td>0.8 MB/s</td>
+                        </tr>
+                        <tr data-status="inactive">
+                            <td>4</td>
+                            <td>Sample Torrent 4</td>
+                            <td>1.5 GB</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 12%"></div>
+                                </div>
+                            </td>
+                            <td>Inactive</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>0 KB/s</td>
+                            <td>0 KB/s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <span><i class="fas fa-arrow-down"></i> <span id="down-speed">3.2 MB/s</span></span>
+                <span><i class="fas fa-arrow-up"></i> <span id="up-speed">1.5 MB/s</span></span>
+            </div>
+            <div class="status-right">
+                <span><span id="torrent-count">4</span> Torrents</span>
+                <span><i class="fas fa-wifi"></i> Connected</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Torrent Modal -->
+    <div class="modal" id="add-torrent-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Torrent</h2>
+            <form id="add-torrent-form">
+                <div class="form-group">
+                    <label for="torrent-url">Torrent URL or Magnet Link:</label>
+                    <input type="text" id="torrent-url" placeholder="https:// or magnet:?">
+                </div>
+                <div class="form-group">
+                    <label for="torrent-file">Or Upload Torrent File:</label>
+                    <input type="file" id="torrent-file" accept=".torrent">
+                </div>
+                <div class="form-group">
+                    <label for="download-location">Download Location:</label>
+                    <input type="text" id="download-location" value="C:/Downloads">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Add Torrent</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 TorrentHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TorrentHub - Browse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="browse-page">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-bolt"></i> TorrentHub
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html" class="active">Browse</a></li>
+                <li><a href="client.html">Web Client</a></li>
+                <li><a href="#" class="upload-btn"><i class="fas fa-upload"></i> Upload</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="browse-container">
+        <div class="browse-header">
+            <h1>Browse Torrents</h1>
+            <div class="search-container">
+                <input type="text" id="browse-search" placeholder="Search for torrents, movies, music...">
+                <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="browse-filters">
+                <div class="filter-group">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="movies">Movies</option>
+                        <option value="tv">TV Shows</option>
+                        <option value="music">Music</option>
+                        <option value="games">Games</option>
+                        <option value="software">Software</option>
+                        <option value="books">Books</option>
+                        <option value="xxx">XXX</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by">
+                        <option value="date">Date Added</option>
+                        <option value="size">Size</option>
+                        <option value="seeds">Seeds</option>
+                        <option value="leechers">Leechers</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="browse-results">
+            <div class="result-count">
+                <p>Showing <span id="result-number">100</span> results</p>
+            </div>
+            
+            <div class="torrent-cards">
+                <!-- Torrent Item 1 -->
+                <div class="torrent-item">
+                    <div class="torrent-item-header">
+                        <h3><a href="#">The Sample Movie (2023) 1080p.BluRay.x264</a></h3>
+                        <span class="verified-badge" title="Verified Torrent"><i class="fas fa-check-circle"></i></span>
+                    </div>
+                    <div class="torrent-item-details">
+                        <div class="torrent-poster" style="background-image: url('https://via.placeholder.com/120x180')"></div>
+                        <div class="torrent-info">
+                            <div class="info-row"><span class="info-label">Size:</span> 2.5 GB</div>
+                            <div class="info-row"><span class="info-label">Date Added:</span> 2023-11-02</div>
+                            <div class="info-row">
+                                <span class="info-label">Category:</span> 
+                                <a href="#" class="category-tag">Movies</a>
+                            </div>
+                            <div class="info-row"><span class="info-label">Uploaded by:</span> TorrentUploader</div>
+                            <div class="torrent-stats">
+                                <div class="stat-item"><i class="fas fa-arrow-up"></i> Seeds: <span class="seed-count">45</span></div>
+                                <div class="stat-item"><i class="fas fa-arrow-down"></i> Leechers: <span class="leech-count">12</span></div>
+                                <div class="stat-item"><i class="fas fa-download"></i> Downloads: <span>1254</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="torrent-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="magnet-btn"><i class="fas fa-magnet"></i> Magnet</a>
+                    </div>
+                </div>
+
+                <!-- Torrent Item 2 -->
+                <div class="torrent-item">
+                    <div class="torrent-item-header">
+                        <h3><a href="#">Popular TV Series S01E01-E10 Complete Season</a></h3>
+                        <span class="verified-badge" title="Verified Torrent"><i class="fas fa-check-circle"></i></span>
+                    </div>
+                    <div class="torrent-item-details">
+                        <div class="torrent-poster" style="background-image: url('https://via.placeholder.com/120x180')"></div>
+                        <div class="torrent-info">
+                            <div class="info-row"><span class="info-label">Size:</span> 5.8 GB</div>
+                            <div class="info-row"><span class="info-label">Date Added:</span> 2023-10-28</div>
+                            <div class="info-row">
+                                <span class="info-label">Category:</span> 
+                                <a href="#" class="category-tag">TV Shows</a>
+                            </div>
+                            <div class="info-row"><span class="info-label">Uploaded by:</span> TVFanatic</div>
+                            <div class="torrent-stats">
+                                <div class="stat-item"><i class="fas fa-arrow-up"></i> Seeds: <span class="seed-count">85</span></div>
+                                <div class="stat-item"><i class="fas fa-arrow-down"></i> Leechers: <span class="leech-count">24</span></div>
+                                <div class="stat-item"><i class="fas fa-download"></i> Downloads: <span>3254</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="torrent-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="magnet-btn"><i class="fas fa-magnet"></i> Magnet</a>
+                    </div>
+                </div>
+
+                <!-- Torrent Item 3 -->
+                <div class="torrent-item">
+                    <div class="torrent-item-header">
+                        <h3><a href="#">Popular Music Album (2023) MP3 320kbps</a></h3>
+                    </div>
+                    <div class="torrent-item-details">
+                        <div class="torrent-poster" style="background-image: url('https://via.placeholder.com/120x180')"></div>
+                        <div class="torrent-info">
+                            <div class="info-row"><span class="info-label">Size:</span> 320 MB</div>
+                            <div class="info-row"><span class="info-label">Date Added:</span> 2023-11-01</div>
+                            <div class="info-row">
+                                <span class="info-label">Category:</span> 
+                                <a href="#" class="category-tag">Music</a>
+                            </div>
+                            <div class="info-row"><span class="info-label">Uploaded by:</span> MusicLover</div>
+                            <div class="torrent-stats">
+                                <div class="stat-item"><i class="fas fa-arrow-up"></i> Seeds: <span class="seed-count">64</span></div>
+                                <div class="stat-item"><i class="fas fa-arrow-down"></i> Leechers: <span class="leech-count">18</span></div>
+                                <div class="stat-item"><i class="fas fa-download"></i> Downloads: <span>2187</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="torrent-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="magnet-btn"><i class="fas fa-magnet"></i> Magnet</a>
+                    </div>
+                </div>
+
+                <!-- Torrent Item 4 -->
+                <div class="torrent-item">
+                    <div class="torrent-item-header">
+                        <h3><a href="#">Software Package v2.5 (x64)</a></h3>
+                    </div>
+                    <div class="torrent-item-details">
+                        <div class="torrent-poster" style="background-image: url('https://via.placeholder.com/120x180')"></div>
+                        <div class="torrent-info">
+                            <div class="info-row"><span class="info-label">Size:</span> 4.7 GB</div>
+                            <div class="info-row"><span class="info-label">Date Added:</span> 2023-10-25</div>
+                            <div class="info-row">
+                                <span class="info-label">Category:</span> 
+                                <a href="#" class="category-tag">Software</a>
+                            </div>
+                            <div class="info-row"><span class="info-label">Uploaded by:</span> SoftwareGuru</div>
+                            <div class="torrent-stats">
+                                <div class="stat-item"><i class="fas fa-arrow-up"></i> Seeds: <span class="seed-count">45</span></div>
+                                <div class="stat-item"><i class="fas fa-arrow-down"></i> Leechers: <span class="leech-count">32</span></div>
+                                <div class="stat-item"><i class="fas fa-download"></i> Downloads: <span>1854</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="torrent-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="magnet-btn"><i class="fas fa-magnet"></i> Magnet</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-nav prev-page"><i class="fas fa-chevron-left"></i> Previous</a>
+                <div class="page-numbers">
+                    <a href="#" class="page-number">1</a>
+                    <a href="#" class="page-number active">2</a>
+                    <a href="#" class="page-number">3</a>
+                    <a href="#" class="page-number">4</a>
+                    <a href="#" class="page-number">5</a>
+                    <span class="page-ellipsis">...</span>
+                    <a href="#" class="page-number">10</a>
+                </div>
+                <a href="#" class="page-nav next-page">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 TorrentHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
